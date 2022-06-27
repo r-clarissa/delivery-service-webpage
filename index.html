@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+    <head>
+        <title>Pizza Delivery Webpage</title>
+        <link rel ="stylesheet" href="style.css">
+    </head>
+       
+    <body>
+        <!-- Header -->
+        <div class="header">
+            <h1 id="pissa">PISSA HUT</h1>
+            <p> perfect pizzas from edge to edge || scratch-made pizza goodness || a smile in every slice</p>
+          
+        <!-- Navigation Bar -->
+        <div class="topnav">
+            <a href="#">About Us</a>
+            <a href="#">Pizza Menu</a>
+            <a href="#">Order Form</a>
+        </div>
+          
+        <!-- Pizza Menu Containers -->
+        <div class="container">
+        <div class="heading"> <h1>ORDER NOW!</h1> </div>
+        <div class="row">
+            <div class="card">
+            <div class="card-header">
+                <h1>Pepperoni</h1>
+            </div>
+            <div class="card-body">
+                <p> <img src="images/pepperoni.png" alt="Image of Pepperoni Overload" style="width: 100%;" /> </p>
+                <a href="#" class="btn">Pizza Main Topping # 1</a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="card-header">
+                <h1>Hawaiian</h1>
+            </div>
+            <div class="card-body">
+                <p> <img src="images/hawaiian.png" alt="Image of Hawaiian" style="width: 100%;"> </p>
+                <a href="#" class="btn">Pizza Main Topping # 2</a>
+            </div>
+            </div>
+            <div class="card">
+            <div class="card-header">
+                <h1>Meat Overload</h1>
+            </div>
+            <div class="card-body">
+                <p> <img src="images/meat.png" alt="Image of Meat Overload" style="width: 100%;"> </p>
+                <a href="#" class="btn">Pizza Main Topping # 3</a>
+            </div>
+            </div>
+            <div class="card"> <div class="card-body"> <h1 style="color: rgba(128, 128, 128, 0.377); text-align: left;"> <br> <br> UNLOCK. <br> PURCHASE <br> ISSA <br> CARD <br> NOW </h1>
+        </div>
+        </div>
+
+        <!-- Order Form -->
+        <form id="form-body" method="POST" action="http://httpbin.org/anything">
+            <!-- Name -->
+            <div class="input-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="First name, Last name" required>
+            </div>
+            <!-- Email -->
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input class="input" type="email" id="email" name="email" placeholder="email@address.com" required>
+            </div>
+            <!-- Address -->
+            <div class="input-group">
+                <label for="address">Address:</label>
+                <input class="input" type="address" id="address" name="address" placeholder="Type your delivery address" required>
+            </div>
+            <!-- Phone Number -->
+            <div class="input-group">
+                <label for="phone">Phone Number:</label>
+                <input class="input" type="tel" id="phone" name="phone" placeholder="eg. 09XXXXXXXXX" 
+                required pattern = "([0-9]{11})|(([0-9{4})(-)([0-9]{3})(-)([0-9]{4}))|(([0-9]{4})( )([0-9]{3})( )([0-9]{4}))|((\()([0-9]{4})(\) )([0-9]{3}( )([0-9]{4}))|((049)( )([0-9]{3})( )([0-9]{4}))|((\()(049)(\) )([0-9]{3})( )([0-9]{4}))|(([0-9]{3})( )([0-9]{4}))|(([0-9]{7}))|(([0-9]{3})(-)([0-9]{4}))|">
+            </div>
+             <!-- Time of Expected Delivery-->
+            <div class="input-group">
+                <label for="time">Time of Expected Delivery: </label> <input type = "time" name="time" id="myTime" min="10:00:00" max="19:00:00">
+                <button type="button" onclick="validateTime()">Check if available</button> <p id="confirmation"></p>
+            </div>
+             <!-- Pizza Size -->
+            <div class="option-group">
+                <label for="size">Pizza Size:</label>
+                <br> <input type="radio" name="size" id="small" value="125"  onclick="getRadPrice()" required> 
+                <label for= "small"> Small </label>
+                <input type="radio" name="size" id="medium" value="250"  onclick="getRadPrice()"> 
+                <label for= "medium"> Medium </label>
+                <input type="radio" name="size" id="large" value="500"  onclick="getRadPrice()"> 
+                <label for= "large"> Large </label><br>
+            </div>
+             <!-- Pizza Crust Type -->
+            <div class="option-group">
+                <br> <label for="crust">Pizza Crust Type: </label>
+                <br> <input type="radio" name="crust" id="thin" value="50"  onclick="getRadPrice()" required> 
+                <label for= "thin"> Thin </label>
+                <input type="radio" name="crust" id="thick" value="70"  onclick="getRadPrice()" required> 
+                <label for= "thick"> Thick </label> </label><br>
+            </div>
+             <!-- Pizza Main Toppings -->
+            <div class="option-group">
+                <br> <label for="maintoppings">Pizza Main Toppings:</label>
+                <input type="text" name="maintoppings" placeholder="Type main toppings" required list="maintop-list">
+                <datalist id="maintop-list">
+                    <option value="Pepperoni Overload">Pepperoni Overload</option>
+                    <option value="Hawaiian">Hawaiian</option>
+                    <option value="Meat Overload"> Meat overload</option>
+                </datalist>
+            </div>
+             <!-- Pizza Additional Toppings -->
+            <div class="option-group">
+                <br> <label for="extratoppings">Pizza Additional Toppings:</label> <br>
+                <input type="checkbox" name="extratoppings" id="vegetables" value="12"  onclick="getAddToppingPrice()">
+                <label for="vegetables"> More vegetables </label>
+                <input type="checkbox" name="extratoppings" id="meat" value="75"  onclick="getAddToppingPrice()">
+                <label for="meat"> More meat </label>
+                <input type="checkbox" name="extratoppings" id="cheese" value="50"  onclick="getAddToppingPrice()">
+                <label for="cheese"> More cheese </label>
+            </div>
+             <!-- Additional Requests -->
+            <div class="input-group">
+                <br> <label for="request"> Additional requests: </label><br>
+                <textarea name="request" id="request" rows="2" cols="10" placeholder="If you have any request, type it here"></textarea>
+            </div>
+             <!-- Displays the price based on the selected values -->
+            <h1 id="price">Price</h1>
+            <button type="submit">Submit</button> 
+        </form> 
+
+        <code id="code"></code>
+        <script src="script.js"></script>
+    </body>
+</html>
