@@ -27,8 +27,7 @@ To get a local copy up and running, kindly follow these steps.
 4. Enter sample customer and order details.
 
 # Acknowledgement
-This is school project were the functionalitis are specified by UPLB - ICS.
-
+This is a school project were functionalities are specified by the UPLB - ICS.
 
 
 
