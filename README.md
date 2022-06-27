@@ -14,7 +14,7 @@ This is a simple pizza delivery service webpage that validates and books the cus
 # Getting Started
 To get a local copy up and running, kindly follow these steps.
 
-### Prerequisites
+### Prerequisite
 * Node.js
 
 ### Installation
